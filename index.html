@@ -571,7 +571,7 @@
             <a href="mailto:corinekouassiwork@gmail.com" class="contact-btn primary">
                 <i class="fas fa-envelope"></i> Me contacter
             </a>
-            <a href="corine_kouassi.vcf"  class="contact-btn secondary">
+            <a href="#" id="add-contact-btn" class="contact-btn secondary">
                 <i class="fas fa-address-card"></i> Ajouter le contact
             </a>
         </div>
@@ -802,6 +802,31 @@
         </a>
     </div>
 </footer>
+
+<script>
+document.getElementById('add-contact-btn').addEventListener('click', async function(e) {
+    e.preventDefault();
+
+    try {
+        // Récupérer le contenu du fichier vCard
+        const response = await fetch('corine_kouassi.vcf');
+        const vcfContent = await response.text();
+
+        // Créer un Blob avec le type MIME text/vcard pour que le système l'ouvre comme un contact
+        const blob = new Blob([vcfContent], { type: 'text/vcard' });
+        const url = URL.createObjectURL(blob);
+
+        // Ouvrir le contact - le navigateur/système va l'ouvrir dans l'app contacts
+        window.location.href = url;
+
+        // Nettoyer l'URL après un délai
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (error) {
+        // Fallback: téléchargement direct si erreur
+        window.location.href = 'corine_kouassi.vcf';
+    }
+});
+</script>
 
 </body>
 </html>
