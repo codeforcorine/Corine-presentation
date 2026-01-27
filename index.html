@@ -1,79 +1,807 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Myriam Bakayoko</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Corine KOUASSI - Product Manager & Business Analyst</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
-    .card {
-      max-width: 380px;
-      margin: 40px auto;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-    .logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 16px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 22px;
-    }
-    p {
-      color: #555;
-      margin: 6px 0;
-    }
-    a.button {
-      display: block;
-      margin-top: 20px;
-      padding: 14px;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-    .links a {
-      display: block;
-      margin-top: 10px;
-      color: #000;
-      text-decoration: none;
-    }
-  </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #ec4899);
+            padding: 5px;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 60px rgba(102, 126, 234, 0.5);
+            animation: pulse 3s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 15%;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 60px rgba(102, 126, 234, 0.5); }
+            50% { box-shadow: 0 0 80px rgba(236, 72, 153, 0.6); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #a8d8ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: #a8d8ea;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .contact-btn.primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+
+        .contact-btn.secondary {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #fff;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Section styling */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #ec4899);
+            border-radius: 2px;
+        }
+
+        /* Tech Stack */
+        .tech-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s;
+            width: 100%;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .tech-item i,
+        .tech-item .tech-logo {
+            font-size: 3.5rem;
+            transition: transform 0.3s;
+        }
+
+        .tech-item .tech-logo {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+
+        .tech-item:hover i,
+        .tech-item:hover .tech-logo {
+            transform: scale(1.2);
+        }
+
+        .tech-item span {
+            font-size: 0.9rem;
+            color: #a8d8ea;
+            font-weight: 500;
+        }
+
+        /* Colored icons */
+        .tech-item .devicon-spring-original { color: #6DB33F; }
+        .tech-item .devicon-react-original { color: #61DAFB; }
+        .tech-item .devicon-laravel-original { color: #FF2D20; }
+        .tech-item .devicon-flutter-plain { color: #02569B; }
+        .tech-item .devicon-gitlab-plain { color: #FC6D26; }
+        .tech-item .devicon-ansible-plain { color: #EE0000; }
+        .tech-item .devicon-grafana-original { color: #F46800; }
+        .tech-item .devicon-python-plain { color: #3776AB; }
+        .tech-item .devicon-docker-plain { color: #2496ED; }
+        .tech-item .fa-key { color: #4D4D4D; }
+        .tech-item .fa-users-gear { color: #667eea; }
+        .tech-item .fa-diagram-project { color: #ec4899; }
+
+        /* Projects */
+        .projects-section {
+            background: #0a0a0a;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .project-icon {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .project-icon.banking {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-icon.devops {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-icon.iam {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-icon.recycling {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .project-content p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-tech span {
+            background: rgba(102, 126, 234, 0.2);
+            color: #a8d8ea;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Skills */
+        .skills-section {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0a 100%);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s;
+        }
+
+        .skill-card:hover {
+            background: rgba(255,255,255,0.05);
+            transform: scale(1.05);
+        }
+
+        .skill-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .skill-icon.pm {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .skill-icon.agile {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .skill-icon.dev {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .skill-icon.lead {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Experience Timeline */
+        .experience-section {
+            background: #0a0a0a;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #ec4899);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            padding-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 400px;
+            margin-right: 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 0;
+            margin-left: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: calc(50% - 12px);
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid #0a0a0a;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: calc(50% - 12px);
+            right: auto;
+        }
+
+        .timeline-date {
+            color: #ec4899;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 8px;
+                right: auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <img src="myriam_bakayoko_contact_logo.jpeg" alt="Logo" class="logo">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="avatar">
+            <img src="corine-pic.jpeg" alt="Corine KOUASSI">
+        </div>
+        <h1>Corine KOUASSI</h1>
+        <p class="tagline">Product Manager | Business Analyst | Software Engineer</p>
 
-    <h1>Myriam Bakayoko</h1>
-    <p>📞 +225 0700888692</p>
-    <p>📧 meyydomeyydo@gmail.com</p>
+        <div class="hero-badges">
+            <span class="badge"><i class="fas fa-briefcase"></i> +4 ans d'experience</span>
+            <span class="badge"><i class="fas fa-building"></i> Banque & Assurance</span>
+            <span class="badge"><i class="fas fa-bolt"></i> Agile & DevOps</span>
+        </div>
 
-    <div class="links">
-      <a href="https://instagram.com/MeyydoUnivers" target="_blank">
-        📷 Instagram
-      </a>
+        <div class="contact-buttons">
+            <a href="mailto:corinekouassiwork@gmail.com" class="contact-btn primary">
+                <i class="fas fa-envelope"></i> Me contacter
+            </a>
+            <a href="corine_kouassi.vcf" download class="contact-btn secondary">
+                <i class="fas fa-address-card"></i> Ajouter le contact
+            </a>
+        </div>
     </div>
+</section>
 
-    <!-- Bouton ajout contact -->
-    <a class="button" href="myriam_bakayoko.vcf">
-      ➕ Ajouter le contact
-    </a>
-  </div>
+<!-- Tech Stack -->
+<section class="tech-section">
+    <h2 class="section-title">Stack Technique</h2>
+    <div class="tech-grid">
+        <div class="tech-item">
+            <i class="devicon-spring-original"></i>
+            <span>Spring Boot</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-react-original"></i>
+            <span>React</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-laravel-original"></i>
+            <span>Laravel</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-flutter-plain"></i>
+            <span>Flutter</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-gitlab-plain"></i>
+            <span>GitLab CI/CD</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-ansible-plain"></i>
+            <span>Ansible</span>
+        </div>
+        <div class="tech-item">
+            <svg class="tech-logo" viewBox="0 0 24 24">
+                <defs>
+                    <linearGradient id="grafana-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F9B716"/>
+                        <stop offset="100%" style="stop-color:#F46800"/>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#grafana-grad)" d="M23.5 12c0-.3-.2-.5-.5-.5h-1.2c-.1-1.1-.4-2.2-.8-3.2l1-.6c.2-.1.3-.4.2-.7-.1-.2-.4-.3-.7-.2l-1 .6c-.6-.9-1.3-1.7-2.2-2.3l.5-1c.1-.2 0-.5-.2-.7-.2-.1-.5 0-.7.2l-.5 1c-1-.5-2.1-.8-3.2-.9V2.5c0-.3-.2-.5-.5-.5s-.5.2-.5.5v1.2c-1.1.1-2.2.4-3.2.9l-.5-1c-.1-.2-.4-.3-.7-.2-.2.1-.3.4-.2.7l.5 1c-.9.6-1.6 1.4-2.2 2.3l-1-.6c-.2-.1-.5 0-.7.2-.1.2 0 .5.2.7l1 .6c-.4 1-.7 2.1-.8 3.2H1c-.3 0-.5.2-.5.5s.2.5.5.5h1.2c.1 1.1.4 2.2.8 3.2l-1 .6c-.2.1-.3.4-.2.7.1.2.4.3.7.2l1-.6c.6.9 1.3 1.7 2.2 2.3l-.5 1c-.1.2 0 .5.2.7.2.1.5 0 .7-.2l.5-1c1 .5 2.1.8 3.2.9v1.2c0 .3.2.5.5.5s.5-.2.5-.5v-1.2c1.1-.1 2.2-.4 3.2-.9l.5 1c.1.2.4.3.7.2.2-.1.3-.4.2-.7l-.5-1c.9-.6 1.6-1.4 2.2-2.3l1 .6c.2.1.5 0 .7-.2.1-.2 0-.5-.2-.7l-1-.6c.4-1 .7-2.1.8-3.2H23c.3 0 .5-.2.5-.5zM12 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"/>
+                <circle cx="12" cy="12" r="3" fill="url(#grafana-grad)"/>
+            </svg>
+            <span>Grafana</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-docker-plain"></i>
+            <span>Docker</span>
+        </div>
+        <div class="tech-item">
+            <i class="devicon-python-plain"></i>
+            <span>Python</span>
+        </div>
+        <div class="tech-item">
+            <svg class="tech-logo" viewBox="0 0 24 24">
+                <defs>
+                    <linearGradient id="keycloak-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4D4D4D"/>
+                        <stop offset="100%" style="stop-color:#00B8E3"/>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#keycloak-grad)" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v5.7c0 4.54-3.12 8.78-7 9.88-3.88-1.1-7-5.34-7-9.88V6.3l7-3.12z"/>
+                <path fill="url(#keycloak-grad)" d="M12 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-1 5v6h2v-6h-2z"/>
+            </svg>
+            <span>Keycloak</span>
+        </div>
+    </div>
+</section>
+
+<!-- Skills -->
+<section class="skills-section">
+    <h2 class="section-title">Expertises</h2>
+    <div class="skills-container">
+        <div class="skill-card">
+            <div class="skill-icon pm">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Vision Produit</h3>
+            <p>Definition de la strategie produit, roadmap, priorisation des fonctionnalites et suivi des KPIs business</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon agile">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3>Agile & Scrum</h3>
+            <p>Animation des ceremonies, gestion du backlog, coordination des sprints et amelioration continue</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon dev">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3>Developpement</h3>
+            <p>Conception d'architectures logicielles, developpement backend/frontend et integration continue</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon lead">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>Leadership</h3>
+            <p>Management d'equipes techniques, mentorat des juniors et coordination cross-fonctionnelle</p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section class="projects-section">
+    <h2 class="section-title">Projets Cles</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-icon banking">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="project-content">
+                <h3>Mobile Banking Back-Office</h3>
+                <p>Conception et developpement d'une plateforme de gestion pour une solution de banque mobile</p>
+                <div class="project-tech">
+                    <span>Spring Boot</span>
+                    <span>React</span>
+                    <span>API REST</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon devops">
+                <i class="fas fa-infinity"></i>
+            </div>
+            <div class="project-content">
+                <h3>Fabrique DevOps</h3>
+                <p>Mise en place de pipelines CI/CD, automatisation des deploiements et monitoring</p>
+                <div class="project-tech">
+                    <span>GitLab CI</span>
+                    <span>Ansible</span>
+                    <span>Grafana</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon iam">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="project-content">
+                <h3>Plateforme IAM / SSO</h3>
+                <p>Implementation d'une solution centralisee de gestion des identites et des acces</p>
+                <div class="project-tech">
+                    <span>Keycloak</span>
+                    <span>OAuth 2.0</span>
+                    <span>SAML</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon recycling">
+                <i class="fas fa-recycle"></i>
+            </div>
+            <div class="project-content">
+                <h3>Solution Recyclage</h3>
+                <p>Application mobile et machine connectee pour la collecte et le recyclage des dechets plastiques</p>
+                <div class="project-tech">
+                    <span>Flutter</span>
+                    <span>IoT</span>
+                    <span>Orange CI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Timeline -->
+<section class="experience-section">
+    <h2 class="section-title">Parcours</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-date">Novembre 2025 - Present</span>
+                <h3>Product Manager</h3>
+                <p class="timeline-company">QUANTECH</p>
+                <p>Pilotage stratégique et opérationnel de produits digitaux.
+                    Responsable du cycle de vie produit de bout en bout : discovery, définition de la roadmap, delivery et go-to-market.
+                    Coordination transverse des équipes tech, métier et commerciales pour transformer des besoins business complexes
+                    en solutions scalables et génératrices de ROI.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-date">Mars 2022 - Octobre 2025</span>
+                <h3>Senior Software Engineer</h3>
+                <p class="timeline-company">QUANTECH</p>
+                <p>Pilotage produit et delivery de solutions digitales pour la banque, l'assurance et l'energie</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-date">2022</span>
+                <h3>Diplome Ingenieur</h3>
+                <p class="timeline-company">INPHB Yamoussoukro</p>
+                <p>Ingenieur en informatique - Specialisation developpement logiciel</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-date">2021</span>
+                <h3>Dev Mobile & Chef de Projet</h3>
+                <p class="timeline-company">Orange Cote d'Ivoire (Stage)</p>
+                <p>Direction d'equipe sur un projet d'innovation environnementale et dev d'app Mobile</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer CTA -->
+<footer class="footer-cta">
+    <h2>Travaillons ensemble</h2>
+    <div class="cta-buttons">
+        <a href="mailto:corinekouassiwork@gmail.com" class="contact-btn primary">
+            <i class="fas fa-paper-plane"></i> Envoyer un email
+        </a>
+        <a href="tel:+2250798673139" class="contact-btn secondary">
+            <i class="fas fa-phone"></i> +225 07 98 67 31 39
+        </a>
+    </div>
+</footer>
 
 </body>
 </html>
